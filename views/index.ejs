@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="styles\styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>To Do List</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <!-- <li><a href="/">Contact</a></li> -->
+            <img id="icon" src="/images/moon.png" alt="">
+        </ul>
+    </header>
+    <div id="container">
+        <div id="taskHead">
+            <h2>Tasks</h2>
+            <p><span id="count">
+                    <%= locals.count %>
+                </span> tasks left</p>
+        </div>
+        <div id="tasks">
+            <% for(let i=0; i<locals.task.length; i++){ %>
+                <div id="template">
+                    <h3>
+                        <%= task[i] %>
+                    </h3>
+                    <p>
+                        <%= desc[i] %>
+                    </p>
+                </div>
+                <% }if(locals.form==1){%>
+                    <%- include("./partials/form.html") %>
+                        <% } %>
+        </div>
+
+        <div id="containerFoot">
+            <div id="quote">
+                <p>Daily<br>Quote</p>
+                <hr>
+                <p id="dailyQuote">"Age appears to "</p>
+            </div>
+
+            <form action="/add" method="post">
+                <button id="addButton">
+                    <p id="addP">Add<br>Task</p>
+                    <img id="add" src="/images/plus.png" alt="">
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- <footer id="icons">
+        <a href="https://github.com">
+            <img src="/images/icons/github.png" alt="github">
+        </a>
+        <a href="https://instagram.com">
+            <img src="/images/icons/insta.png" alt="insta">
+        </a>
+        <a href="https://linkedin.com">
+            <img src="/images/icons/linkedin.png" alt="linkedin">
+        </a>
+    </footer> -->
+    <na>Your Screen height/width is not supported,<br> will be updated soon...</na>
+</body>
+
+</html>
